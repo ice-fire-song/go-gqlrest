@@ -13,6 +13,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/errcode"
+	"github.com/sanity-io/litter"
 	"github.com/vektah/gqlparser/v2/gqlerror"
 )
 
@@ -153,6 +154,15 @@ func writeJSON(ctx context.Context, w http.ResponseWriter, r *graphql.Response, 
 			// 0 means http.StatusOk
 			w.WriteHeader(response.Code)
 		}
+	}
+
+	dbgPrintf("======================cgw11 gogqlrest_response_context: %s", litter.Sdump(ctx))
+	if v, ok := ctx.Value("gogqlrest_response_context").(*ResponseContext); ok {
+		dbgPrintf("======================cgw22 gogqlrest_response_context: %s", litter.Sdump(v))
+	}
+
+	if v, ok := ctx.Value("cgw_test_key").(string); ok {
+		dbgPrintf("======================cgw22 cgw_test_key: %s", litter.Sdump(v))
 	}
 
 	if responseCtx := GetResponseContext(ctx); responseCtx != nil {

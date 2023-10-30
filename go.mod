@@ -6,6 +6,7 @@ require (
 	github.com/99designs/gqlgen v0.17.12
 	github.com/go-chi/chi/v5 v5.0.3
 	github.com/mitchellh/mapstructure v1.3.1
+	github.com/sanity-io/litter v1.5.5
 	github.com/stretchr/testify v1.7.1
 	github.com/vektah/gqlparser/v2 v2.4.6
 	gopkg.in/yaml.v2 v2.4.0
